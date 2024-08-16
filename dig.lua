@@ -7,6 +7,9 @@ local function digHole(x, y, z)
                 end
                 
                 if width < x then
+                    if turtle.detect() then
+                        turtle.dig()
+                    end
                     turtle.forward()
                 end
             end
