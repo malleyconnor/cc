@@ -12,7 +12,7 @@ local function digHole(x, y, z)
             end
 
             if height < y then
-                if height % 2 == 1 then
+                if ((height % 2 == 1) and (depth % 2 == 1))  or ((height % 2 == 0) and (depth % 2 == 0)) then
                     turtle.turnRight()
                     if turtle.detect() then
                         turtle.dig()
@@ -32,11 +32,8 @@ local function digHole(x, y, z)
 
         -- Return to the starting position in the current layer
         if depth < z then
-            -- Move to the next layer down
-            if y % 2 == 0 then
-                turtle.turnRight()
-                turtle.turnRight()
-            end
+            turtle.turnRight()
+            turtle.turnRight()
             turtle.down()
         end
     end
