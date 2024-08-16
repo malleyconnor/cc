@@ -14,7 +14,7 @@ end
 
 
 -- Function to find the slot number of a wooden chest
-function findWoodenChest()
+function getChestSlot()
     -- Define the item ID or name for a wooden chest
     local chestName = "minecraft:chest" -- Update if needed based on your Minecraft version or mods
 
