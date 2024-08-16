@@ -1,7 +1,3 @@
-local function getChestSlot()
-    for i=1,
-end
-
 function isChest(i)
     local chestName = "minecraft:chest"
 
