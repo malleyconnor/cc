@@ -9,7 +9,8 @@ local function rectangle(x, y)
             end
 
             if not turtle.detectDown()
-                then turtle.placeDown()
+            then 
+                turtle.placeDown()
             end
 
             if turtle.detect()
@@ -31,6 +32,7 @@ local function rectangle(x, y)
             turtle.turnLeft()
             turtle.forward()
         end
+    end
 end
 
 local params = {...}
