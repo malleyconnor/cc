@@ -61,7 +61,12 @@ local function digHole(x, y, z)
                     if isChest(chestSlot) then
                         turtle.select(chestSlot)
                         turtle.placeUp()
+                        for i=1,16 do
+                            if not (i == chestSlot) then
+                                turtle.dropUp()
+                            end
                     end 
+                    blocks_digged = 0
                 end
             end
 
