@@ -1,6 +1,6 @@
 local utils = require("utils")
 
-function rectangle(x, y)
+local function rectangle(x, y)
     for i=1,y do
         for j=1,x do
             if not utils.get_next_block()

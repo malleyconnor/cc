@@ -8,7 +8,7 @@ local function is_block_placeable(i)
     return not (tags["c:block_items"] == nil)
 end
 
-function get_next_block()
+local function get_next_block()
     local curr_slot = turtle.getSelectedSlot()
     if is_block_placeable(curr_slot)
     then 
