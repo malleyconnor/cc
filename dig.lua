@@ -36,7 +36,7 @@ function getChestSlot()
     return nil
 end
 
-local blocks_digged_per_chest = 256
+local blocks_digged_per_chest = 512
 
 local function digHole(x, y, z)
     local chestSlot= getChestSlot()
@@ -63,6 +63,7 @@ local function digHole(x, y, z)
                         turtle.placeUp()
                         for i=1,16 do
                             if not (i == chestSlot) then
+                                turtle.select(i)
                                 turtle.dropUp()
                             end
                         end
@@ -95,6 +96,11 @@ local function digHole(x, y, z)
             turtle.turnRight()
             turtle.turnRight()
             turtle.down()
+
+            if depth < z-1 then
+                turtle.digDown()
+                turtle.down()
+            end
         end
     end
 end
