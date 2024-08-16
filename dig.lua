@@ -1,16 +1,71 @@
+local function getChestSlot()
+    for i=1,
+end
+
+function isChest(i)
+    local chestName = "minecraft:chest"
+
+    -- Get the item detail from the current slot
+    local item = turtle.getItemDetail(i)
+
+    -- Check if the item is a wooden chest
+    if item and item.name == chestName then
+        return true
+    else
+        return false
+    end
+end
+
+
+-- Function to find the slot number of a wooden chest
+function findWoodenChest()
+    -- Define the item ID or name for a wooden chest
+    local chestName = "minecraft:chest" -- Update if needed based on your Minecraft version or mods
+
+    -- Loop through each slot in the turtle's inventory
+    for slot = 1, 16 do
+        -- Select the slot
+        turtle.select(slot)
+        
+        -- Get the item detail from the selected slot
+        local item = turtle.getItemDetail()
+
+        -- Check if the item is a wooden chest
+        if item and item.name == chestName then
+            return slot
+        end
+    end
+
+    -- Return nil if the wooden chest was not found
+    return nil
+end
+
+local blocks_digged_per_chest = 256
+
 local function digHole(x, y, z)
+    local chestSlot= getChestSlot()
+    local blocks_digged = 0
     for depth = 1, z do
         for height = 1, y do
             for width = 1, x do
                 if turtle.detectDown() then
                     turtle.digDown()
+                    blocks_digged = blocks_digged + 1 
                 end
                 
                 if width < x then
                     if turtle.detect() then
                         turtle.dig()
+                        blocks_digged = blocks_digged + 1 
                     end
                     turtle.forward()
+                end
+
+                if (blocks_digged > blocks_digged_per_chest) and not (chestSlot == nil) then
+                    if isChest(chestSlot) then
+                        turtle.select(chestSlot)
+                        turtle.placeUp()
+                    end 
                 end
             end
 
