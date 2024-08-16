@@ -65,6 +65,7 @@ local function digHole(x, y, z)
                             if not (i == chestSlot) then
                                 turtle.dropUp()
                             end
+                        end
                     end 
                     blocks_digged = 0
                 end
