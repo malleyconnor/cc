@@ -37,7 +37,3 @@ end
 
 local params = {...}
 rectangle(params[1], params[2])
-
-return {
-    rectangle = rectangle
-}
