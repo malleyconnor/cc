@@ -41,7 +41,8 @@ local blocks_digged_per_chest = 512
 local function digHole(x, y, z)
     local chestSlot= getChestSlot()
     local blocks_digged = 0
-    for depth = 1, z do
+    local depth = 1
+    while (depth < z+1) do
         for height = 1, y do
             for width = 1, x do
                 if turtle.detectDown() then
@@ -92,14 +93,15 @@ local function digHole(x, y, z)
         end
 
         -- Return to the starting position in the current layer
-        if depth < z then
+        if depth < z-2 then
             turtle.turnRight()
             turtle.turnRight()
             turtle.down()
-
-            if depth < z-1 then
-                turtle.digDown()
-                turtle.down()
+            turtle.digDown()
+            turtle.down()
+            turtle.digDown()
+            turtle.down()
+            depth = depth + 3
             end
         end
     end
