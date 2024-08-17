@@ -102,7 +102,6 @@ local function digHole(x, y, z)
             turtle.digDown()
             turtle.down()
             depth = depth + 3
-            end
         end
     end
 end
