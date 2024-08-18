@@ -1,8 +1,8 @@
 local utils = require("utils")
 
 local function hollow_rect(x, y, height)
-    local x_width = x // 2
-    local y_width = y // 2
+    local x_width = math.floor(x / 2)
+    local y_width = math.floor(y // 2)
 
     utils.dig_move_forward(x_width)
     utils.rotate_clockwise(180)
