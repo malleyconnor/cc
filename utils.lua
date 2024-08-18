@@ -26,7 +26,46 @@ local function get_next_block()
     return false
 end
 
-return {
-    is_block_placeable = is_block_placeable,
-    get_next_block = get_next_block
-}
+local function loop_around_right()
+    turtle.turnRight()
+    turtle.forward()
+    turtle.turnRight()
+    turtle.forward()
+end
+
+local function loop_around_left()
+    turtle.turnLeft()
+    turtle.forward()
+    turtle.turnLeft()
+    turtle.forward()
+end
+
+
+-- moves forward j blocks, clearing it's path on the way
+local function dig_move_foward(j)
+    for i=1,j do
+        if turtle.detect()
+            turtle.dig()
+        end
+        turtle.forward()
+    end
+end
+
+-- moves up j blocks, clearing it's path on the way
+local function dig_move_up(j)
+    for i=1,j do
+        if turtle.detectUp()
+            turtle.digUp()
+        end
+        turtle.up()
+    end
+end
+
+local function rotate_clockwise(degrees)
+    local num_rotates = degrees % 90
+    for i=1,num_rotates do 
+        turtle.turnRight()
+    end
+end
+
+return { is_block_placeable = is_block_placeable,get_next_block = get_next_block, loop_around_right = loop_around_right, loop_around_left = loop_around_left , dig_move_forward = dig_move_forward, rotate_clockwise = rotate_clockwise}
