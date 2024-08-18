@@ -2,14 +2,14 @@ local utils = require("utils")
 
 local function hollow_rect(x, y, height)
     local x_width = math.floor(x / 2)
-    local y_width = math.floor(y // 2)
+    local y_width = math.floor(y / 2)
 
     utils.dig_move_forward(x_width)
     utils.rotate_clockwise(180)
     utils.dig_move_forward(y_width)
     utils.rotate_clockwise(180)
     utils.dig_move_up(1)
-    local is_y_side == true
+    local is_y_side = true
     local num_to_build = 0
     for i=1,height
         for j=1,4 do
