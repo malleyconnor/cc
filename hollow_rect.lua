@@ -11,7 +11,7 @@ local function hollow_rect(x, y, height)
     utils.dig_move_up(1)
     local is_y_side = true
     local num_to_build = 0
-    for i=1,height
+    for i=1,height do
         for j=1,4 do
             if is_y_side then 
                 num_to_build = y
@@ -19,7 +19,7 @@ local function hollow_rect(x, y, height)
                 num_to_build = x
             end
 
-            for k=1,num_to_build
+            for k=1,num_to_build do
                 turtle.get_next_block()
                 turtle.placeDown()
                 if k < num_to_build then
