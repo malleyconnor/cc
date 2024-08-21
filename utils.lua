@@ -77,5 +77,10 @@ local function dig_move_up(j)
     end
 end
 
+local function dig_place_up()
+    turtle.digUp()
+    turtle.placeUp()
+end
 
-return { is_block_placeable = is_block_placeable,get_next_block = get_next_block, loop_around_right = loop_around_right, loop_around_left = loop_around_left , dig_move_forward = dig_move_forward, dig_move_up = dig_move_up, rotate_clockwise = rotate_clockwise}
+
+return { is_block_placeable = is_block_placeable,get_next_block = get_next_block, loop_around_right = loop_around_right, loop_around_left = loop_around_left , dig_move_forward = dig_move_forward, dig_move_up = dig_move_up, rotate_clockwise = rotate_clockwise, dig_place_up = dig_place_up}

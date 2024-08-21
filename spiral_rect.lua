@@ -4,7 +4,7 @@ local function spiral_rect(x, y, height, thickness)
     utils.dig_move_up(-2)
     local is_y_side = false
     local num_to_build = 0
-    local block_to_place = 0
+    local block_to_place = 1
     local blocks_placed = 1
     for i=1,height do
         for j=1,4 do
@@ -23,14 +23,13 @@ local function spiral_rect(x, y, height, thickness)
                 turtle.select(block_to_place)
                 blocks_placed = blocks_placed + 1
                 if k < num_to_build then
-                    turtle.dig_move_forward(1)
+                    utils.dig_move_forward(1)
                 end
             end
             utils.rotate_clockwise(90)
             is_y_side = not is_y_side
         end
-        utils.rotate_clockwise(90)
-        utils.dig_move_up(1)
+        utils.dig_move_up(-1)
     end
 end
 
