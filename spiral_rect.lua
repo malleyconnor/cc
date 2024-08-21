@@ -16,7 +16,7 @@ local function spiral_rect(x, y, height, thickness)
 
             for k=1,num_to_build do
                 utils.get_next_block()
-                turtle.placeUp()
+                utils.dig_place_up()
                 if (blocks_placed % thickness == 0) then
                     block_to_place = block_to_place % 16 + 1
                 end
