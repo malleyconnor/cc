@@ -44,13 +44,13 @@ local function spiral_rect(x, y, height, thickness)
             for k=1,num_to_build do
                 if k < num_to_build then
                     utils.dig_place_up()
-                end
-                utils.dig_move_forward(1)
-                if (blocks_placed % thickness == 0) then
-                    block_to_place = 1 - block_to_place
+                    blocks_placed = blocks_placed + 1
+                    if (blocks_placed % thickness == 0) then
+                        block_to_place = 1 - block_to_place
+                    end
+                    utils.dig_move_forward(1)
                 end
                 utils.getNextBlockByName(blocks[block_to_place + 1])
-                blocks_placed = blocks_placed + 1
             end
             utils.rotate_clockwise(90)
             is_y_side = not is_y_side
