@@ -32,6 +32,7 @@ local function spiral_rect(x, y, height, thickness)
     local blocks_placed = 1
 
     local blocks = getFirstTwoUniqueBlocks()
+    utils.getNextBlockByName(blocks[block_to_place + 1])
     for i=1,height do
         for j=1,4 do
             if is_y_side then 
@@ -45,8 +46,8 @@ local function spiral_rect(x, y, height, thickness)
                 utils.dig_place_up()
                 if (blocks_placed % thickness == 0) then
                     block_to_place = 1 - block_to_place
-                    utils.getNextBlockByName(blocks[block_to_place + 1])
                 end
+                utils.getNextBlockByName(blocks[block_to_place + 1])
                 blocks_placed = blocks_placed + 1
                 if k < num_to_build then
                     utils.dig_move_forward(1)
