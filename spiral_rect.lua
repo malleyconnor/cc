@@ -45,9 +45,8 @@ local function spiral_rect(x, y, height, thickness)
                 utils.dig_place_up()
                 if (blocks_placed % thickness == 0) then
                     block_to_place = 1 - block_to_place
-                    getNextBlockByName(blocks[block_to_place + 1])
+                    utils.getNextBlockByName(blocks[block_to_place + 1])
                 end
-                turtle.select(block_to_place)
                 blocks_placed = blocks_placed + 1
                 if k < num_to_build then
                     utils.dig_move_forward(1)
