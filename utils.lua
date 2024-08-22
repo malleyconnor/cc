@@ -88,7 +88,7 @@ function getNextBlockByName(blockName)
         local itemDetail = turtle.getItemDetail(i)
         
         if itemDetail and itemDetail.name == blockName then
-            return i
+            turtle.select(i)
         end
     end
 
