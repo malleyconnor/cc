@@ -29,7 +29,7 @@ local function spiral_rect(x, y, height, thickness)
     local is_y_side = false
     local num_to_build = 0
     local block_to_place = 0
-    local blocks_placed = 1
+    local blocks_placed = 0
 
     local blocks = getFirstTwoUniqueBlocks()
     utils.getNextBlockByName(blocks[block_to_place + 1])
