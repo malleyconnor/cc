@@ -82,10 +82,9 @@ local function dig_place_up()
     turtle.placeUp()
 end
 
-function getNextBlockByName(blockName, startSlot)
-    startSlot = startSlot or 1  -- If startSlot isn't provided, default to the first slot
+function getNextBlockByName(blockName)
 
-    for i = startSlot, 16 do
+    for i = 1, 16 do
         local itemDetail = turtle.getItemDetail(i)
         
         if itemDetail and itemDetail.name == blockName then
